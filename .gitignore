@@ -1,0 +1,12 @@
+# Project exclude paths
+/out/
+/.idea
+/src/Algoritms
+/src/Chorsmantrain
+/src/NC2403
+/src/treningtastk
+/src/iShape.java
+/src/Main.java
+/src/Shape.java
+/src/Rectangle.java
+/src/Triangle.java
