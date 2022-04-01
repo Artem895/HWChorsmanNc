@@ -29,7 +29,7 @@ public class Chapter1 {
     //========================================
     //Exercise 6
     public static BigInteger fac(BigInteger n){
-        if((int) n.compareTo(BigInteger.valueOf(1))<0){
+        if(n.compareTo(BigInteger.valueOf(1))<0){
             return BigInteger.valueOf(1);
         }
         return fac(n.subtract(BigInteger.valueOf(1))).multiply(n);
@@ -66,7 +66,7 @@ public class Chapter1 {
     //Exercises 14
     public static void magick(){
         Scanner consol = new Scanner(System.in);
-        int n=0;
+        int n;
         int i=0;
         boolean aurum=true;
         consol.useDelimiter("\n");
@@ -83,7 +83,6 @@ public class Chapter1 {
                 if(lin.split(" ").length>n){
                     System.out.println("Привышен размер массива");
                     System.out.println("Поброуй еще раз ");
-                    continue;
                 }
                 else if(i>n-1){
                     System.out.println("Привышен размер массива");
@@ -98,7 +97,7 @@ public class Chapter1 {
                     i++;
                 }
             }
-            else continue;
+            //else continue;
         }
         System.out.println("твой квадрат ");
         for (int[] a:squer){
