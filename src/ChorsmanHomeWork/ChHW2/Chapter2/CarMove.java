@@ -57,6 +57,7 @@ public class CarMove extends Application {
                         System.out.println("Finish");
                         text.setText("FINISH");
                         mills.setText("");
+                        car.setX(-15);
                     }
                 }
                 else if(keyEvent.getCode().equals(KeyCode.F)) {
