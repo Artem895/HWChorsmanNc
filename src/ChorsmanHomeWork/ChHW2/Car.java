@@ -1,8 +1,11 @@
 package ChorsmanHomeWork.ChHW2;
 
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
 import java.io.IOException;
 
-public  class Car  {
+public  class Car  extends Rectangle {
     private final int maxvoluem;
     private final String carBrand;
     private final int consumption;//расход топлива
@@ -10,10 +13,17 @@ public  class Car  {
     private int mills;
 
     public Car(int  maxvoluem, int consumption,String carBrand) {
+        super(0,271,20,20);
+        super.setFill(Color.BLACK);
         this.maxvoluem = maxvoluem;
         this.consumption = consumption;
         this.carBrand=carBrand;
     }
+
+    public int getConsumption() {
+        return consumption;
+    }
+
     public void zapravka(int fuellgal){
 
         this.levelofFuel+=fuellgal;
@@ -23,21 +33,13 @@ public  class Car  {
         return levelofFuel;
     }
 
-    public void start1(int mills){
-        int i=0;
-        if(this.levelofFuel==0){
-            System.out.println("Заправте автомобиль");
-        }
-        else if(this.levelofFuel/this.consumption<mills){
-            System.out.println("Нехватит топлива на весь путь , заправтесь ");
-        }
-        else {
-            while (this.levelofFuel > 0 && i <= mills) {
-                System.out.println("Бензина осталось на:" + this.levelofFuel / this.consumption + " миль");
-                System.out.println("Уровень топлива:" + this.levelofFuel);
-                this.levelofFuel -= this.consumption;
-                i++;
+    public void movcar(){
+            this.setX(this.getX() + 10);
+            if(levelofFuel>0&&levelofFuel-consumption>0){
+            this.levelofFuel-=this.consumption;
             }
-        }
     }
+   public void ras(){
+        this.levelofFuel-=this.consumption;
+   }
 }
