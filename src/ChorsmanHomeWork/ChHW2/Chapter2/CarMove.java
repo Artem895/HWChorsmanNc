@@ -27,7 +27,7 @@ public class CarMove extends Application {
         Line asfalt=new Line(0,300,300,300);
         Rectangle ground =new Rectangle(0,299,300,400);
         Text text=new Text(20,20,String.valueOf(car.getLevelofFuel())+"л "+"- уровень топлива"+"  (F)");
-        Text mills=new Text(20,40,String.valueOf(car.getLevelofFuel()/ car.getConsumption())+"миль  "+"- можно пройти ");
+        Text mills=new Text(20,40,String.valueOf(car.zapashoda())+"миль  "+"- можно пройти ");
         text.setSelectionFill(Color.BLACK);
         mills.setSelectionFill(Color.BLACK);
 
@@ -48,10 +48,10 @@ public class CarMove extends Application {
                     if (car.getLevelofFuel() > 0&&car.getLevelofFuel()-car.getConsumption()>0) {
                         car.movcar();
                         text.setText(String.valueOf(car.getLevelofFuel())+"л "+"- уровень топлива"+"  (F)");
-                        mills.setText(String.valueOf(car.getLevelofFuel()/ car.getConsumption())+"миль  "+"- можно пройти ");
+                        mills.setText(String.valueOf(car.zapashoda())+"миль  "+"- можно пройти ");
                         System.out.println(car.getLevelofFuel() + "d");
                     }
-                    if(car.getX()==scene.getWidth()){
+                    if(isequal(scene.getWidth(),car.getX())){
                         System.out.println("Finish");
                         text.setText("FINISH");
                         mills.setText("");
@@ -60,7 +60,7 @@ public class CarMove extends Application {
                 else if(keyEvent.getCode().equals(KeyCode.F)) {
                     car.zapravka(5);
                     text.setText(String.valueOf(car.getLevelofFuel())+"л "+"- уровень топлива"+"  (F)");
-                    mills.setText(String.valueOf(car.getLevelofFuel()/ car.getConsumption())+"миль  "+"- можно пройти ");
+                    mills.setText(String.valueOf(car.zapashoda())+"миль  "+"- можно пройти ");
                     System.out.println(car.getLevelofFuel() + "f");
                 }
                 }
@@ -71,7 +71,9 @@ public class CarMove extends Application {
         primaryStage.show();
     }
 
-
+    public static boolean isequal(double x,double y){
+        return x-y<=0.000000001;
+    }
 
 }
 
