@@ -5,6 +5,8 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -12,6 +14,8 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
 
 public class CarMove extends Application {
 
@@ -30,7 +34,6 @@ public class CarMove extends Application {
         Text mills=new Text(20,40,String.valueOf(car.zapashoda())+"миль  "+"- можно пройти ");
         text.setSelectionFill(Color.BLACK);
         mills.setSelectionFill(Color.BLACK);
-
         ground.setFill(Color.GREEN);
         asfalt.setStroke(Color.GRAY);
         asfalt.setStrokeWidth(20);
@@ -39,7 +42,6 @@ public class CarMove extends Application {
         group.getChildren().add(ground);
         group.getChildren().add(text);
         group.getChildren().add(mills);
-
         Scene scene = new Scene(group, 300, 400);
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
