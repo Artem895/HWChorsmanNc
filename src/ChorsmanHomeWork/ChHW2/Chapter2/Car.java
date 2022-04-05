@@ -19,7 +19,9 @@ public  class Car  extends Rectangle {
         this.consumption = consumption;
         this.carBrand=carBrand;
     }
-
+    public int zapashoda(){
+        return this.levelofFuel/this.consumption;
+    }
     public int getConsumption() {
         return consumption;
     }
