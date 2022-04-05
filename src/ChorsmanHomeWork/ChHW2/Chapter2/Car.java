@@ -32,9 +32,14 @@ public  class Car extends ImageView {
         return consumption;
     }
 
-    public void zapravka(int fuellgal){
+    public int getMaxvoluem() {
+        return maxvoluem;
+    }
 
-        this.levelofFuel+=fuellgal;
+    public void zapravka(int fuellgal){
+        if(this.levelofFuel<this.maxvoluem){
+                this.levelofFuel+=fuellgal;
+        }
     }
 
     public int getLevelofFuel() {

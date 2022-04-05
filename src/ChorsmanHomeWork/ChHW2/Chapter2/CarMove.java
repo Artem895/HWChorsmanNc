@@ -30,7 +30,7 @@ public class CarMove extends Application {
         Car car=new Car(100,3,"Hel");
         Line asfalt=new Line(0,300,300,300);
         Rectangle ground =new Rectangle(0,299,300,400);
-        Text text=new Text(20,20,String.valueOf(car.getLevelofFuel())+"л "+"- уровень топлива"+"  (F)");
+        Text text=new Text(20,20,String.valueOf(car.getLevelofFuel())+"/"+car.getMaxvoluem()+"л "+"- уровень топлива"+"  (F)");
         Text mills=new Text(20,40,String.valueOf(car.zapashoda())+"миль  "+"- можно пройти ");
         text.setSelectionFill(Color.BLACK);
         mills.setSelectionFill(Color.BLACK);
@@ -49,7 +49,7 @@ public class CarMove extends Application {
                 if (keyEvent.getCode().equals(KeyCode.D)) {
                     if (car.getLevelofFuel() > 0&&car.getLevelofFuel()-car.getConsumption()>0) {
                         car.movcar();
-                        text.setText(String.valueOf(car.getLevelofFuel())+"л "+"- уровень топлива"+"  (F)");
+                        text.setText(String.valueOf(car.getLevelofFuel())+"/"+car.getMaxvoluem()+"л "+"- уровень топлива"+"  (F)");
                         mills.setText(String.valueOf(car.zapashoda())+"миль  "+"- можно пройти ");
                         System.out.println(car.getLevelofFuel() + "d");
                     }
@@ -61,8 +61,8 @@ public class CarMove extends Application {
                     }
                 }
                 else if(keyEvent.getCode().equals(KeyCode.F)) {
-                    car.zapravka(5);
-                    text.setText(String.valueOf(car.getLevelofFuel())+"л "+"- уровень топлива"+"  (F)");
+                    car.zapravka(1);
+                    text.setText(String.valueOf(car.getLevelofFuel())+"/"+car.getMaxvoluem()+"л "+"- уровень топлива"+"  (F)");
                     mills.setText(String.valueOf(car.zapashoda())+"миль  "+"- можно пройти ");
                     System.out.println(car.getLevelofFuel() + "f");
                 }
