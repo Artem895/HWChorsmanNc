@@ -13,11 +13,11 @@ public class tets {
         Measurable[] arr={e1,e2,e3,e4,e5,e6,e7,e8};
         System.out.println(average(arr));
         largest(arr);
-        IntSequence sequence = IntSequence.of(3, 1, 4, 1, 5, 9);
-        sequence.sequnse();
+        /*IntSequence sequence = IntSequence.of(3, 1, 4, 1, 5, 9);
+        sequence.sequnse();*/
         System.out.println();
-        IntSequence.constanta(1,7);
-
+        IntSequence in=IntSequence.cn(1,7);
+        in.sequnse();
     }
 
     public static double average(Measurable[] objs){
