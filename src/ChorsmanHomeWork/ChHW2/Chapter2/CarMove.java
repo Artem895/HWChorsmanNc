@@ -26,36 +26,39 @@ public class CarMove extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Group group=new Group();
-        Line asfalt = new Line();
-        Rectangle ground = new Rectangle();
-        Text text=new Text();
-        Text mills=new Text();
-        Car car =creatmap(group,asfalt,ground,text,mills);
-        Scene scene = new Scene(group, 300, 400);
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode().equals(KeyCode.D)) {
-                    if (car.getLevelofFuel() > 0&&car.getLevelofFuel()-car.getConsumption()>0) {
-                        car.movcar();
-                        changetext(car,text,mills);
+    public void start(Stage primaryStage) {
+        try {
+            Group group = new Group();
+            Line asfalt = new Line();
+            Rectangle ground = new Rectangle();
+            Text text = new Text();
+            Text mills = new Text();
+            Car car = creatmap(group, asfalt, ground, text, mills);
+            Scene scene = new Scene(group, 300, 400);
+            scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent keyEvent) {
+                    if (keyEvent.getCode().equals(KeyCode.D)) {
+                        if (car.getLevelofFuel() > 0 && car.getLevelofFuel() - car.getConsumption() > 0) {
+                            car.movcar();
+                            changetext(car, text, mills);
+                        }
+                        if (isequal(scene.getWidth(), car.getX())) {
+                            finishtext(car, text, mills);
+                        }
+                    } else if (keyEvent.getCode().equals(KeyCode.F)) {
+                        car.zapravka(1);
+                        changetext(car, text, mills);
                     }
-                    if(isequal(scene.getWidth(),car.getX())){
-                        finishtext(car,text,mills);
-                    }
-                }
-                else if(keyEvent.getCode().equals(KeyCode.F)) {
-                    car.zapravka(1);
-                    changetext(car,text,mills);
-                }
                 }
 
-        });
+            });
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }catch (FileNotFoundException ex){
+            ex.printStackTrace();
+        }
     }
 
     public static boolean isequal(double x,double y){
