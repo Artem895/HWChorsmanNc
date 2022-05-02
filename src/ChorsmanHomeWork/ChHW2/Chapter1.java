@@ -64,7 +64,7 @@ public class Chapter1 {
         return (int) (Math.random()* ++max) + min;
     }
     //Exercises 14
-    public static void magick(){
+    /*public static void magick(){
         Scanner consol = new Scanner(System.in);
         int n;
         int i=0;
@@ -136,6 +136,6 @@ public class Chapter1 {
         if(aurum){
             System.out.println("ЗБс квадратик ");
         }
-    }
+    }*/
 
 }
